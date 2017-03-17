@@ -7,6 +7,7 @@ package servlets;
 
 import beans.StukemonEjb;
 import entities.Pokemon;
+
 import entities.Trainer;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -22,8 +23,8 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author ferran
  */
-@WebServlet(name = "listapok", urlPatterns = {"/listapok"})
-public class listapok extends HttpServlet {
+@WebServlet(name = "listatr", urlPatterns = {"/listatr"})
+public class listatr extends HttpServlet {
 @EJB StukemonEjb ejb;
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -38,51 +39,48 @@ public class listapok extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            List<Pokemon> pokemons = ejb.pokemonsortvid();
+            List<Trainer> trainers = ejb.trainersClass();
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet listapok</title>");
+            out.println("<title>Servlet listatr</title>");
             out.println("     <link href=\"css/bootstrap.min.css\" rel=\"stylesheet\" type=\"text/css\"/>");
  
             out.println("</head>");
             out.println("<body>");
             out.println("<div class='jumbotron'>");
-            out.println("<h1>Servlet listapok at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet listatr at " + request.getContextPath() + "</h1>");
             out.println("</div>");
                   
             out.println("<div class=\"container\">");
             
-            if (pokemons.size()==0){
+            if (trainers.size()==0){
                  out.print("<h1>No hay  pokemons</h1>");
             }
             else{
-            out.println("<table class='table table-bordered'>");
+                
+                
+                 out.println("<table class='table table-bordered'>");
             out.println("<tr>");
-            out.println("<th> Nombre </th>");
-            out.println("<th> Tipo </th>");
-            out.println("<th> Habilidad</th>");
-            out.println("<th> Ataque </th>");
-            out.println("<th> Velocidad </th>");
-            out.println("<th> Vida </th>");
-            out.println("<th> Nivel </th>");
+           out.println("<th> Nombre </th>");
+            out.println("<th> Pokeballs </th>");
+            out.println("<th> Pociones</th>");
+            out.println("<th> Puntos </th>");
             out.println("</tr>");
-            for (Pokemon p : pokemons) {
+            for (Trainer t : trainers) {
 
                 out.println("<tr>");
-                out.println("<td>" + p.getName() + "</td>");
-                out.println("<td>" + p.getType() + "</td>");
-                out.println("<td>" + p.getAbility() + "</td>");
-                out.println("<td>" + p.getAttack() + "</td>");
-                out.println("<td>" + p.getSpeed() + "</td>");
-                out.println("<td>" + p.getLife() + "</td>");
-                out.println("<td>" + p.getLevel() + "</td>");
+                 out.println("<td>" + t.getName() + "</td>");
+                out.println("<td>" + t.getPokeballs() + "</td>");
+                out.println("<td>" +  t.getPotions() + "</td>");
+                out.println("<td>" +  t.getPoints() + "</td>");
                 out.println("</tr>");
 
             }
             out.println("</table>");
             }
-            out.println(" <a href=\"index.html\" class=\"btn btn-warning\">Volver a indice</a>");
+            
+              out.println(" <a href=\"index.html\" class=\"btn btn-warning\">Volver a indice</a>");
                  out.println("</div>");
             out.println("</body>");
             out.println("</html>");
