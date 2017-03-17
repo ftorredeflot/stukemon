@@ -42,10 +42,14 @@ public class listapok extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet listapok</title>");            
+            out.println("<title>Servlet listapok</title>");
+            out.println("     <link href=\"css/bootstrap.min.css\" rel=\"stylesheet\" type=\"text/css\"/>");
+ 
             out.println("</head>");
             out.println("<body>");
+            out.println("<div class='jumbotron'>");
             out.println("<h1>Servlet listapok at " + request.getContextPath() + "</h1>");
+            out.println("</div>");
             out.println("</body>");
             out.println("</html>");
         }
