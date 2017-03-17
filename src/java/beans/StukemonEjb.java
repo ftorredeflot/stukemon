@@ -87,6 +87,17 @@ public class StukemonEjb {
             return true;
         }
         return false;
+        
+        
+        
     }
-
+    public List<Pokemon> pokemonsordvid(){
+         return emf.createEntityManager().createQuery("select p from Pokemon p order by p.level desc, p.life desc").getResultList();
+    }
+    public List<Trainer> trainersClass(){
+        return emf.createEntityManager().createQuery("select e from Trainer e order by e.points desc").getResultList();
+    }
+    public List<Battle> rankBatles(){
+     
+    }
 }
