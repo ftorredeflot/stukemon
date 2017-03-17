@@ -16,6 +16,10 @@
         <servlet-name>BorrarP</servlet-name>
         <servlet-class>servlets.BorrarP</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>listapok</servlet-name>
+        <servlet-class>servlets.listapok</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>StukemonServlet</servlet-name>
         <url-pattern>/StukemonServlet</url-pattern>
@@ -31,6 +35,10 @@
     <servlet-mapping>
         <servlet-name>BorrarP</servlet-name>
         <url-pattern>/BorrarP</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>listapok</servlet-name>
+        <url-pattern>/listapok</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
